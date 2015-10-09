@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Guessing Game</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"  media="screen">
+    <link rel="stylesheet" href="main.css"> 
+  </head>
+  <body>
+    <!-- Creates a container class for all the content -->
+    <div class="container">
+
+      <!-- Constructs the header-->
+        <header class="page-header">
+
+          <!-- creates the nagivation bar within the header -->
+          <ul class="nav nav-pills pull-right">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">About Game</a>
+            </li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <h2>The Guessing Game</h2>
+      </header>
+
+      <!-- creates the jumbotron backdrop for the page -->
+      <div class="jumbotron">
+
+        <!-- Gives the page the title and a little descriptive paragraph -->
+        <h1>What's Your Guess?</h1>
+        <p class="lead">This is a guessing game. You guess numbers. If you guess the right one, you win!</p>
+
+        <!-- Creaets a user-input field -->
+        <div id="user-input">  
+          <input type="text" name="guess" placeholder="Input Number 1-100" class="input-lg">
+        </div>
+
+        <!-- creates a submit button -->
+        <div id="Enter-Button">
+          <button class="btn btn-primary btn-lg" name="submit">Enter Your Guess</button>
+        </div>
+
+        <!-- creates a hint button -->
+        <div id="Hint-Button">
+          <button class="btn btn-info btn-lg" type="button">Get Hint</button>
+        </div>
+
+        <!-- creates a play again button -->
+        <div id="Play-Button">
+          <button class="btn btn-info btn-lg" type="button">Play Again</button>
+        </div>
+        
+        <!-- reminds user how many guesses remain -->
+          <h3 id ="guess-count">5 Guesses Remaining</h3>
+      </div>
+          <footer>
+            <h6>Created by Andrew Morrison</>
+          </footer>
+    </div>
+  </body>
+</html>

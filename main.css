@@ -1,0 +1,21 @@
+body {
+	background-color: #eef8fc;
+}
+
+.jumbotron {
+	background-color: #def2f8;
+	
+}
+
+h1, p, h3, .input-lg {
+	text-align: center;
+}
+
+#Enter-Button, #Play-Button, #Hint-Button, #user-input {
+	padding: 2.5px;
+	text-align: center;
+}
+
+
+
+
