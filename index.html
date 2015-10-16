@@ -16,9 +16,9 @@
           <!-- creates the nagivation bar within the header -->
           <ul class="nav nav-pills pull-right">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About Game</a>
+            <li><a href="about.html">About Game</a>
             </li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
           <h2>The Guessing Game</h2>
       </header>
@@ -28,7 +28,11 @@
 
         <!-- Gives the page the title and a little descriptive paragraph -->
         <h1>What's Your Guess?</h1>
-        <p class="lead">This is a guessing game. You guess numbers. If you guess the right one, you win!</p>
+        <p class="lead">This is a guessing game. You guess numbers from 1 to 100.</p>
+        <p class="lead">If you guess the right one, you win!</p>
+
+        <!-- Creaets a feddback field -->
+        <div id ="message"></div>
 
         <!-- Creaets a user-input field -->
         <div id="user-input">  
@@ -47,15 +51,55 @@
 
         <!-- creates a play again button -->
         <div id="Play-Button">
-          <button class="btn btn-info btn-lg" type="button">Play Again</button>
+          <button class="btn btn-info btn-lg"type="button">Play Again</button>
         </div>
         
         <!-- reminds user how many guesses remain -->
           <h3 id ="guess-count">5 Guesses Remaining</h3>
+
+          <table align="center" class="guesses">
+            <tbody>
+            <tr>
+              <th>Guess</th>
+              <td id="guess5"></td>
+              <td id="guess4"></td>
+              <td id="guess3"></td>
+              <td id="guess2"></td>
+              <td id="guess1"></td>
+            </tr>
+            <tr>
+              <th>Hot or Cold?</th>
+              <td id="temp5"></td>
+              <td id="temp4"></td>
+              <td id="temp3"></td>
+              <td id="temp2"></td>
+              <td id="temp1"></td>
+            </tr>
+          </tbody>
+          </table>
+          
+<!-- reminds user how many guesses remain 
+          <table align="center" id="table">
+            <tbody>
+              <tr class="success">
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+              </tr>
+              <tr class="info">
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+              </tr>
+          </tbody>
+        </table>
+        -->
       </div>
           <footer>
-            <h6>Created by Andrew Morrison</>
+            <h6>Created by Andrew Morrison</h6>
           </footer>
     </div>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="js/app.js" type="text/javascript" charset="utf-8"></script>
   </body>
 </html>
