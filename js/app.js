@@ -1,12 +1,11 @@
-//Guessing Game main functionality
+//Guessing Game Main Functionality
 	//generate a random number when the page loads
 	var random = Math.floor(Math.random()*100+1);
-	console.log(random);
+	//declare a bunch of important variables
 	var userInput;
 	var userGuesses = [];
 	var guessCount = 5;
 	var difference = 0;
-	//user type in guess and store it
 
 //a function that changes the #message to whatever "message" is, then sets the input field to the given "placeholder" sring
 var changeMessage = function(message, placeholder) {
@@ -18,7 +17,6 @@ var changeMessage = function(message, placeholder) {
 var appendMessage = function(message) {
 	$("#message").append("<h3>" + message + "</h3>").css("text-align", "center");
 }
-
 
 //a function that updates the shading in the Guess/Hot or Cold?" Table, takes a string of hex value (aka a color)
 var colorRecorder = function(color, text) {
@@ -33,7 +31,6 @@ var colorRecorder = function(color, text) {
 };
 //a function that updates the values in the "Guess/Hot or Cold?" Table with the most recent guess; takes a string to describe the guess's temperature (e.g, "Hot", "Cold", etc.)
 var guessRecorder = function(temperature) {
-	//update the value
 	$("#guess" + guessCount).text(userInput);
 	$("#temp" + guessCount).text(temperature);
 };
@@ -52,8 +49,9 @@ var GameOver = function(body, jumbotron) {
 		}
 	});
 
-//take the user input and store it in userGuesses
+//fetch the user input with a click--this is the main functionality section
 	$("#Enter-Button button").click(function() {
+		//set userInput equal to what the user inputted
 		userInput = $("input").val();
 
 		//check if the input is still valid; if the input is invalid, tell them
@@ -68,9 +66,8 @@ var GameOver = function(body, jumbotron) {
 			GameOver("#7FBE7F", "#9FEE9F");
 		}
 
-		//check if it is a repeat
+		//check if what the user inputted is a repeat
 		else if (userGuesses.indexOf(userInput) !== -1) {
-			//DRy: this could also probably be DRYd, although it is ony half of what the other ones have
 			changeMessage("You already guessed " + userInput + "! Guess again!", "");
 		}
 
@@ -79,11 +76,8 @@ var GameOver = function(body, jumbotron) {
 			//store the value
 			userGuesses.push(userInput);
 			difference = Math.abs(random - userInput);
-			//show Guess in table
-			//DRY it, again
-			//show Temperature in Table
 
-			// if very hot (difference of 5)
+			// check if very hot (difference of 5)
 			if (difference <= 5) {
 				guessRecorder("Very Hot");
 				colorRecorder("#dca7a7", "#a94442");
@@ -115,13 +109,11 @@ var GameOver = function(body, jumbotron) {
 				changeMessage("You guessed " + userInput + "! You are very cold!", "");
 			}
 
-			//see if they need to guess higher or lower BASED ON RANDOM
+			//see if they need to guess higher or lower compared to the randomly generated value
 			if (random>userInput) {
-				//this is the lesser element of DRY
 				appendMessage("Guess higher!");
 			}
 			else {
-				//this should also be the lesser element of DRY
 				appendMessage("Guess lower!");
 			}
 
@@ -136,31 +128,25 @@ var GameOver = function(body, jumbotron) {
 			else if (difference == Math.abs(random - userGuesses[userGuesses.indexOf(userInput) -1])) {
 				appendMessage("You've sandwiched the answer!");
 			}
-			
-			console.log(userGuesses);
 
+			//update number of guesses left message
 			if (guessCount >=0) {
 			//increment GuessCount and show on screen guesses remaining
 			guessCount--;
 			$("#guess-count").text(guessCount + " Guesses Remaining");
 			}
 			
-
 			//check if out of guesses
 			if (guessCount <= 0) {
-				//this is almost identical to the up-top thing, so could maybe DRY it up with that up top
 				changeMessage("All out of guesses. The number was " + random + ". Game over!", 'Hit "Play Again"');
 				GameOver("#6b6b6b", "#999999");
 			}
 		}
 	});
 
-
-	//if user guesses more than 5 times without getting the answer, output "you lose, the number was X"
-//Auxiliary Functionality
-	//click "Hint" again and get the answer
+//Guessing Game Auxiliary Functionality
+	//click "Hint" to get the answer
 	$("#Hint-Button button").click(function() {
-		//again, repeatable
 		changeMessage("You are a cheater. The answer is " + random + ". Go ahead, type it in.", "");
 	});
 
@@ -168,6 +154,3 @@ var GameOver = function(body, jumbotron) {
 	$("#Play-Button button").click(function() {
 		location.reload();
 	});
-
-
-
